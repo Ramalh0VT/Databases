@@ -1,0 +1,29 @@
+
+CREATE TABLE autor (
+    cpf VARCHAR(20) NOT NULL PRIMARY KEY,
+    email VARCHAR(60) NOT NULL UNIQUE,
+    nome VARCHAR(40) NOT NULL
+);
+
+
+CREATE TABLE publica (
+    cpf VARCHAR(20) NOT NULL,
+    id VARCHAR(25) NOT NULL
+);
+ 
+ALTER TABLE publica ADD CONSTRAINT FK_publica_1
+    FOREIGN KEY (cpf)
+    REFERENCES autor (cpf)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE publica ADD CONSTRAINT FK_publica_2
+    FOREIGN KEY (id)
+    REFERENCES artigo (id)
+    ON DELETE RESTRICT;
+
+CREATE TABLE artigo (
+    id VARCHAR(25) NOT NULL PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    descricao VARCHAR(500),
+    data_de_publicacao VARCHAR(40) NOT NULL
+);
