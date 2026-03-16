@@ -1,0 +1,16 @@
+SELECT CURRENT_USER;
+
+SHOW DATABASES;
+
+USE db_2td;
+
+SELECT DATABASE();
+
+SHOW TABLES;
+
+DESCRIBE funcionarios;
+
+DROP TABLE funcionarios;
+
+
+
