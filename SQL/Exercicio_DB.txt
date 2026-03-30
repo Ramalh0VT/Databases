@@ -1,0 +1,32 @@
+Exercício paginas 47, 48
+
+ALTER TABLE alunos ADD email VARCHAR(150);
+
+ALTER TABLE alunos RENAME nome TO nome_completo;
+
+ALTER TABLE alunos ADD telefone VARCHAR(15) NOT NULL; 
+
+ALTER TABLE alunos ALTER COLUMN VARCHAR(150) NOT NULL;
+
+ALTER TABLE alunos DROP COLUMN telefone;
+
+Página 52
+CREATE TABLE professores(
+id_professor PRIMARY KEY,
+nome VARCHAR(100) NOT NULL,
+especialidade VARCHAR(50),
+salario NUMERIC(13,2)
+);
+
+INSERT INTO professores 
+VALUES
+(1, 'Ana lima', 'Matemática,' 4200.50),
+(2, 'João mendes, 'Física', 3900.75),
+(3, 'Carla oliveira', 'Química', 4150.00);
+
+Página 53
+
+
+
+
+
