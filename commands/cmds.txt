@@ -1,0 +1,24 @@
+WHERE => Can be used with the parameters beetween, in
+
+now();
+
+
+current_date() / curdate(); => Shows current date but not the time (HH:MM:SS)
+
+^ curdate / current_date() and now doesn't make the same things
+
+SELECT shows information of something like print on python, echo on php/linux. It's used to show data/information output
+
+USE is used to use a certain database
+
+SHOW is similar to select but you use it alot to show the current databases in a database server (Or tables in a database).
+
+LIMIT is used to define, well, a limit a query will be done (regarding it's usage with select atleast)
+
+DESC / DESCRIBE shows the columns / fields in the table and it's characteristics
+
+CREATE TABLE creates a table, and you can also add a parameter "IF NOT EXISTS" so it doesn't try to overwrite information
+
+In the table columns, we can add information, like variable type (INT, NUMERIC, FLOAT, VARCHAR, DATE...), if it's the primary key, if it auto increments(AUTO_INCREMENT), if it's the foreign key, if it's not null or NULL, you can delete tables with "Drop table"
+
+
