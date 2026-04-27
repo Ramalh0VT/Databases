@@ -1,3 +1,3 @@
 ## Description
 
-Just a repository to store what i can store about SQL and databases 
+A repository to store what i learn about databases and SQL.
