@@ -21,4 +21,6 @@ CREATE TABLE creates a table, and you can also add a parameter "IF NOT EXISTS" s
 
 In the table columns, we can add information, like variable type (INT, NUMERIC, FLOAT, VARCHAR, DATE...), if it's the primary key, if it auto increments(AUTO_INCREMENT), if it's the foreign key, if it's not null or NULL, you can delete tables with "Drop table"
 
+TRUNCATE will literally remove all decimal places from a number after a certain amount of decimal digits, ROUND will round it to a certain amount of decimal digits.
 
+TRUNCATE and ROUND syntax is (value_to_round, number_of_decimal_places) 
