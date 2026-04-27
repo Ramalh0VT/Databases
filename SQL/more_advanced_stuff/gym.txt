@@ -219,8 +219,16 @@ INSERT INTO cliente (nome, data_nasc, peso, altura) VALUES
 ('Velma Lewis', '1964-04-04', 94.7, 1.49);
 
 SELECT nome,timestampdiff(year,data_nasc,curdate()) as "age", peso, altura,
-ROUND(peso / POWER(altura, 2), 1) as "IMC" 
+ROUND(peso / POWER(altura, 2), 1) as "IMC", 
 CASE
-	WHEN  imc < 18.5 THEN 'underweight'
-END AS "status";
-FROM cliente;
+	WHEN peso / POWER(altura, 2) < 18.5 THEN 'underweight'
+	WHEN peso / POWER(altura, 2) BETWEEN 18.5 AND 24.9 THEN 'Ok weight'
+	WHEN peso / POWER(altura, 2) BETWEEN 24.9 AND 29.9 THEN 'Overweight'
+	WHEN peso / POWER(altura, 2) BETWEEN 30 AND 34.9 THEN 'Obesity 1'
+	WHEN peso / POWER(altura, 2) BETWEEN 35 AND 39.9 THEN 'Obesity 2'
+	ELSE 'Obesity 3'
+END AS "status"
+FROM cliente
+WHERE timestampdiff(year, data_nasc, now()) BETWEEN 18 AND 30
+ORDER BY age ASC; 
+
