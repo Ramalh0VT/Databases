@@ -105,6 +105,8 @@ UPDATE produtos
 SET estoque = estoque - 5
 WHERE estoque > 10;
 
+DELETE FROM produtos where data_cadastro like
+
 
 
 
