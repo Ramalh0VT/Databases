@@ -73,16 +73,72 @@ ORDER BY renda DESC;
 SELECT nome, data_cadastro, idade FROM clientes
 WHERE data_cadastro LIKE '2023%' AND idade > 30; 
 
-
 -- Página 71
 
-SELECT nome, data_cadastro,renda,idade FROM clientes
-WHERE data_cadastro LIKE '2023%' AND nome LIKE '%a' AND renda > 3000 ORDER BY idade DESC LIMIT 5 ;
+SELECT nome, data_cadastro,renda,idade,email FROM clientes
+WHERE data_cadastro LIKE '2023%' AND nome LIKE '%a' AND renda > 3000 AND email IS NULL ORDER BY idade DESC LIMIT 5 ;
 
 -- Página 81
+DROP TABLE produtos;
 
+CREATE TABLE produtos (
+id INT PRIMARY KEY,
+nome VARCHAR(100),
+categoria VARCHAR(50),
+preco DECIMAL(10,2),
+estoque INT,
+data_cadastro DATE,
+ativo BOOLEAN
+);
 
+INSERT INTO produtos (id, nome, categoria, preco, estoque, data_cadastro, ativo) VALUES
+(1, 'Smartphone X1', 'Eletrônicos', 1200.00, 50, '2023-01-10', TRUE),
+(2, 'Notebook Y2', 'Eletrônicos', 3500.50, 30, '2023-02-15', TRUE),
+(3, 'Cadeira Escritório', 'Móveis', 450.00, 20, '2022-12-05', TRUE),
+(4, 'Mesa Escritório', 'Móveis', 800.00, 15, '2023-03-01', TRUE),
+(5, 'Fone de Ouvido Z', 'Eletrônicos', 150.00, 0, '2023-04-12', FALSE),
+(6, 'Lampada LED', 'Iluminação', 80.00, 100, '2023-01-25', TRUE),
+(7, 'Monitor 24"', 'Eletrônicos', 900.00, 10, '2023-05-10', TRUE),
+(8, 'Sofá 3 lugares', 'Móveis', 2200.00, 5, '2022-11-20', TRUE),
+(9, 'Teclado Gamer', 'Eletrônicos', 300.00, 25, '2023-06-15', TRUE),
+(10, 'Abajur de Mesa', 'Iluminação', 120.00, 0, '2023-07-01', FALSE);
 
+-- Página 82
 
+-- 1
 
+UPDATE produtos SET preco = 1100 WHERE id = 1;
 
+-- 2
+
+UPDATE produtos SET estoque = estoque - 5 WHERE categoria = 'Eletrônicos' AND estoque > 10;
+
+-- 3
+
+UPDATE produtos SET ativo = FALSE WHERE estoque = 0;
+
+-- 4
+
+DELETE FROM produtos WHERE categoria = 'Iluminação' AND data_cadastro < '2023-02-01';
+
+-- 5 
+
+DELETE FROM produtos WHERE estoque = 0 AND ativo = FALSE;
+
+-- 6
+
+UPDATE produtos SET nome = 'Monitor 24 polegadas' WHERE nome = 'Monitor 24';
+
+-- 7
+
+DELETE FROM produtos WHERE data_cadastro > 01/06/2023;
+
+-- 8
+
+UPDATE produtos SET estoque = 50 WHERE ativo = FALSE;
+
+-- 9
+
+DELETE FROM produtos WHERE nome LIKE '%Escritório%' AND preco < 500;
+
+-- Página 83
