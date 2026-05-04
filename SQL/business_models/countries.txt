@@ -1,0 +1,33 @@
+-- 1
+
+SELECT Country, Continent FROM countries WHERE Capital = "Harare";
+
+-- 2
+
+SELECT Country, Capital, Area_sq_km, Population, Continent, Languages FROM countries WHERE Area_sq_km > 8000000 AND Population > 150000000 AND Population < 1000000000 ORDER BY Area_sq_km DESC;
+
+-- 3
+
+SELECT Country, Capital, Area_sq_km, Population FROM countries WHERE Country != 'Antartica' ORDER BY Area_sq_km DESC LIMIT 10;
+
+SELECT * FROM countries;
+
+-- 4
+
+SELECT Country, Capital, Area_sq_km, Population FROM countries WHERE Area_sq_km > 1000 ORDER BY Area_sq_km ASC LIMIT 10;
+
+-- 5
+
+SELECT Country, Capital, Area_sq_km, Population, Languages FROM countries WHERE Languages LIKE '%pt%';
+
+-- 6
+
+SELECT Country, Population, Area_sq_km, TRUNCATE(Population / Area_sq_km, 1) AS population_density FROM countries WHERE Continent = 'SA' ORDER BY Area_sq_km DESC; 
+
+-- 7
+
+SELECT Country, Capital, Postal_Code_Regex, tld, CurrencyName FROM countries WHERE Continent ='Europe' AND CurrencyName != 'Euro';
+
+-- Extra
+
+SELECT Country, Languages FROM countries WHERE Languages LIKE '%fa%' OR Languages LIKE '%ara%'  AND Area_sq_km > 500000 AND Population > 20 AND Population < 200000000 ORDER BY Area_sq_km DESC;
