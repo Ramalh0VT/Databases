@@ -30,4 +30,12 @@ SELECT Country, Capital, Postal_Code_Regex, tld, CurrencyName FROM countries WHE
 
 -- Extra
 
-SELECT Country, Languages FROM countries WHERE Languages LIKE '%fa%' OR Languages LIKE '%ara%'  AND Area_sq_km > 500000 AND Population > 20 AND Population < 200000000 ORDER BY Area_sq_km DESC;
+select Country,
+case
+	when Languages like 'ar%' then 'Árabe'
+	when Languages like 'fa%' then 'Farsi' 
+end
+from countries
+where (Languages like 'ar%' or Languages like 'fa%') AND 
+(Area_sq_km > 5e5) and
+(Population between 20e6 and 200e6);
